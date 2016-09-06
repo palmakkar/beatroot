@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
     if @user.save
-      flash[:success] = "Signup successful!"
+      flash[:success] = "Welcome to BeatRoot!"
       redirect_to @user
     else
       render 'new'
@@ -17,8 +17,10 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   end
 
-  def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password,
-                                   :password_confirmation)
+  private
+
+    def user_params
+        params.require(:user).permit(:first_name, :last_name, :email, :password,
+                                     :password_confirmation)
     end
 end
