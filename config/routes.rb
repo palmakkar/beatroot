@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'users/new'
-
   get 'users/create'
 
   get 'users/show'
 
   root 'statics#index'
+
+  get 'about', to: 'statics#about'
+  get 'contact', to: 'statics#contact'
+  get 'signup', to: 'users#new'
 
   resources :users
 
